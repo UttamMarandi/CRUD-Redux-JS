@@ -125,8 +125,18 @@ const studentSlice = createSlice({
         phone: "",
       };
     },
+    addStudent: (state, action) => {
+      state.students = [action.payload, ...state.students];
+    },
+    updateStudent: (state, action) => {
+      state.students = state.students.map((item) =>
+        item.id == action.payload.id ? action.payload : item
+      );
+    },
+    //if item.id matched the id of action.payload than update that element , if id is not matched than leave it
   },
 });
 
-export const { getStudent, clearStudent } = studentSlice.actions; //destructue studentSlice.actions
+export const { getStudent, clearStudent, addStudent, updateStudent } =
+  studentSlice.actions; //destructue studentSlice.actions
 export default studentSlice.reducer;

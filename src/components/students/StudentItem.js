@@ -33,7 +33,7 @@ const StudentItem = ({ student }) => {
         <Typography variant="caption">{address}</Typography>
         <Button
           component={Link}
-          to="/students/100/edit"
+          to={`/students/${id}/edit`}
           variant="outlined"
           startIcon={<EditIcon />}
         >
